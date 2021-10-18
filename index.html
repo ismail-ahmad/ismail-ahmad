@@ -84,12 +84,16 @@
       display: flex;
       flex-flow: column nowrap;
       font: normal 400 1em nunito;
-      background-color: rgba(255, 255, 255, 0.308);
+      animation: 1200ms form 0s 1 ease-in forwards;
       backdrop-filter: blur(3px);
       border-radius: 10px;
       padding: 10px;
       height: 100%;
       width: 100%;
+    }
+    @keyframes form {
+      0%   {background-color: rgba(255, 255, 255, 0.3);}
+      100% {background-color: rgba(255, 255, 255, 0.2);}
     }
     input{
       background-color: transparent;
