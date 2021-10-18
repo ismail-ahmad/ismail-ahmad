@@ -4,194 +4,207 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student</title>
+  <title>Login</title>
+  <script src="https://kit.fontawesome.com/75a786cedb.js" crossorigin="anonymous"></script>
   <style>
-    *, *::after, *::before{
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    *{
       padding: 0;
       margin: 0;
       box-sizing: border-box;
     }
-    :root{
-      font: italic small-caps normal 1em calibri;
-    }
-    ::selection{
-      background-color: lightblue;
-      color: darkblue;
-    }
     body{
-      background-image: linear-gradient(to bottom right, rgba(250, 62, 109, 0.89), 70%, rgba(255, 0, 0, 0)),
-                        linear-gradient(to bottom left, rgb(7, 127, 207), 70%, rgba(255, 0, 0, 0)),
-                        linear-gradient(to top, rgb(0, 250, 167), 70%, rgba(255, 0, 0, 0));
+      background-image: linear-gradient(to right, rgb(192, 88, 150), rgb(43, 77, 189));
+      background-position: center;
+      background-size: 100%;
       background-repeat: no-repeat;
-      background-attachment: scroll;
-      background-position: ;
-      background-size: 100vw 100vh;
-      background-clip: border-box;
+      background-attachment: fixed;
+      padding-top: 20px;
     }
-    .form{
-      height: 410px;
-      border: 1px solid #ccc;
-      margin: 5px;
-      padding: 10px;
-      border-radius: 7px;
-      box-shadow: inset 0 0 3px gray;
+    .login{
+      margin: 90px auto;
       position: relative;
-      background-color: white;
+      z-index: 2;
     }
-    input[type="text"]{
+    p{
+      position: absolute;
+      z-index: -2;
+    }
+    .one, .four{
+      height: 25%;
+      width: 20%;
+      background-color: rgba(255, 255, 255, 0.108);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      border-radius: 10px;
+    }
+    .two, .three{
+      height: 15%;
+      width: 10%;
+      background-color: rgba(255, 255, 255, 0.108);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      border-radius: 5px;
+    }
+    .one{
+      animation: 800ms p1 100ms 1 ease-in forwards;
+      opacity: 0;
+    }
+    .four{
+      animation: 800ms p4 100ms 1 ease-in forwards;
+      opacity: 0;
+    }
+    .two{
+      animation: 800ms p2 100ms 1 ease-in forwards;
+      opacity: 0;
+    }
+    .three{
+      animation: 800ms p3 100ms 1 ease-in forwards;
+      opacity: 0;
+    }
+    @keyframes p1 {
+      0%   {left: 0; top: 0; opacity: 0;}
+      100% { left: -7%; top: -15%; opacity: 1;}
+    }
+    @keyframes p2 {
+      0%   {left: 0; bottom: 0; opacity: 0;}
+      100% {left: -5%; bottom: -5%; opacity: 1;}
+    }
+    @keyframes p3 {
+      0%   {right: 0; top: 0; opacity: 0;}
+      100% {right: -5%; top: -5%; opacity: 1;}
+    }
+    @keyframes p4 {
+      0%   {right: 0; bottom: 0; opacity: 0;}
+      100% {right: -3%; bottom: -11%; opacity: 1;}
+    }
+    /* form Styling */
+    form{
+      color: white;
+      display: flex;
+      flex-flow: column nowrap;
+      font: normal 400 1em nunito;
+      background-color: rgba(255, 255, 255, 0.308);
+      backdrop-filter: blur(3px);
+      border-radius: 10px;
+      padding: 10px;
+      height: 100%;
       width: 100%;
-      padding: 4px;
-      outline: none;
-      border: none;
-      font: italic 1em calibri;
-      transition: 300ms;
-      border-bottom: 1px solid #bbb;
     }
-    input[type="text"]:focus{
-      margin-top: 30px;
-    }
-    .row{
-      margin: 20px 0 0 0;
-    }
-    select{
-      width: 100%;
-      border: none;
-      border-bottom: 1px solid #ccc;
-      font: italic 1em calibri;
+    input{
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 7px;
       outline: none;
+      color: white;
+      flex: 100%;
     }
-    select:focus{
-      box-shadow: 0 0 10px lightblue;
+    h1{
+      flex: 100%;
+      text-align: center;
+      margin: 10px auto 20px auto;
+      font: small-caps 300 2.2em roboto;
     }
-    textarea{
-      outline: none;
-      resize: none;
-      padding: 4px;
-      width: 100%;
-      height: 32px;
-      border: 1px solid #ccc;
-      font: italic 1em calibri;
-      margin: 5px 0 0 0;
-      transition: 200ms;
-    }
-    textarea:focus{
-      height: 100px;
+    label{
+      flex: 100%;
     }
     input[type="submit"]{
-      width: 99%;
-      padding: 8px 0;
-      border: none;
-      font: italic small-caps 1em calibri;
-      border-radius: 5px;
-      background-color: rgb(35, 197, 247);
-      cursor: pointer;
       color: white;
-      position: absolute;
-      bottom: 3px;
-      left: 50%;
-      transform: translateX(-50%);
+      font: 1em nunito;
+      background-image: linear-gradient(to left, rgba(192, 88, 150, 0.5), rgba(43, 77, 189, 0.5));
+      padding: 12px;
+      margin: 30px 0 0 0;
+      cursor: pointer;
     }
-    @media only screen and (max-width: 700px) and (min-width: 500px){
-      textarea, select, input[type="text"]{
-      width: 75%;
-      float: left;
-      }
-      label{
-        width: 25%;
-        float: left;
-      }
-      .row::after{
-        content: "";
-        display: table;
-        clear: both;
-      }
-      input[type="text"]:focus{
-        margin-top: 0;
-      }
-      .form{
-        height: 330px;
-        max-width: 480px;
-        top: 15vh;
-        left: 2%;
-        margin: 0 auto;
+    input[type="text"]{
+      margin-bottom: 20px;
+    }
+    input[type="text"]:focus, input[type="password"]:focus{
+      border-radius: 2px;
+    }
+    .social{
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      color: white;
+      font: 1em calibri;
+      justify-content: space-between;
+      margin: 5px 0 50px 0;
+    }
+    .social>div{
+      padding: 8px;
+      flex-basis: 49%;
+      text-align: center;
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      font: normal 400 1em nunito;
+    }
+    .social i{
+      margin: 0 8px 0 0;
+    }
+    .social a, .social a:visited{
+      text-decoration: none;
+      color: white;
+    }
+    @media screen and (max-width:576px){
+     .login{
+       width: 80vw;
+     }
+    }
+    @media screen and (min-width:577px) and (max-width:768px){
+      .login{
+        width: 40vw;
       }
     }
-
-    @media only screen and (min-width: 701px){
-       textarea, select, input[type="text"]{
-      width: 75%;
-      float: left;
+    @media screen and (min-width:769px) and (max-width:992px){
+      .login{
+        width: 40vw;
+        margin-right: auto;
+        margin-left: 50%;
       }
-      label{
-        width: 25%;
-        float: left;
+    }
+    @media screen and (min-width:993px) and (max-width:1200px){
+      .login{
+        width: 30vw;
+        margin-right: auto;
+        margin-left: 60%;
       }
-      .row::after{
-        content: "";
-        display: table;
-        clear: both;
+    }
+    @media screen and (min-width:1201px) and (max-width:1400px){
+      .login{
+        width: 20vw;
+        margin-right: auto;
+        margin-left: 60%;
       }
-      input[type="text"]:focus{
-        margin-top: 0;
-      }
-      .form{
-        height: 330px;
-        max-width: 600px;
-        top: 25vh;
-        margin-right: 10%;
-        margin-left: auto;
+    }
+    @media screen and (min-width:1401px){
+      .login{
+        width: 10vw;
+        margin-right: auto;
+        margin-left: 60%;
       }
     }
   </style>
 </head>
 <body>
-    <div class="form">
-      <form action="action.php" method="post">
-        <div class="row">
-          <div class="label">
-            <label for="">First Name:</label>
-          </div>
-          <div class="input">
-            <input type="text" value="Zhize">
-          </div>
-        </div>
-        <div class="row">
-          <div class="label">
-            <label for="">Last Name:</label>
-          </div>
-          <div class="input">
-            <input type="text" value="Wang">
-          </div>
-        </div>
-        <div class="row">
-          <div class="label">
-            <label for="">Country:</label>
-          </div>
-          <div class="dropdown">
-            <select name="country" id="">
-              <option value="Australia">Australia</option>
-              <option value="Canada" selected>Canada</option>
-              <option value="USA">USA</option>
-              <option value="England">England</option>
-              <option value="China" selected>中国</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label">
-            <label for="">Comment:</label>
-          </div>
-          <div class="textarea">
-            <textarea name="Public-Comment" placeholder="Write a public comment"></textarea>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input">
-            <input type="submit" value="Submit">
-          </div>
-        </div>
-      </form>
-    </div>
+  <div class="login">
+    <p class="one"></p>
+    <p class="two"></p>
+    <p class="three"></p>
+    <p class="four"></p>
+    <form action="action.php" method="post" autocomplete="off" target="_blank">
+      <h1>Login</h1>
+      <label for="username">Username: </label>
+      <input type="text" name="username" id="username">
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password" >
+      <input type="submit" value="Login">
+      <div class="social">
+        <div class="social-go"><i class="fab fa-google"></i><a href="https://www.google.com">Google</a></div>
+        <div class="social-fb"><i class="fab fa-facebook"></i><a href="https://www.facebook.com">Facebook</a></div>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
