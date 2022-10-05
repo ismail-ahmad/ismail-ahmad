@@ -1,207 +1,37 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="1oCpip-lePlf9978qVqEVw7pjA56tiPwmDo2GJ8jZO0" />
-  <title>Login</title>
-  <script src="https://kit.fontawesome.com/75a786cedb.js" crossorigin="anonymous"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-    *{
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-    body{
-      background-image: linear-gradient(to right, rgb(192, 88, 150), rgb(43, 77, 189));
-      background-position: center;
-      background-size: 100%;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      padding-top: 20px;
-    }
-    .login{
-      margin: 90px auto;
-      position: relative;
-      z-index: 2;
-    }
-    p{
-      position: absolute;
-      z-index: -2;
-    }
-    .one, .four{
-      height: 25%;
-      width: 20%;
-      background-color: rgba(255, 255, 255, 0.108);
-      border: 3px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(4px);
-      border-radius: 10px;
-    }
-    .two, .three{
-      height: 15%;
-      width: 10%;
-      background-color: rgba(255, 255, 255, 0.108);
-      border: 3px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(4px);
-      border-radius: 5px;
-    }
-    .one{
-      animation: 1200ms p1 250ms 1 ease-in-out forwards;
-      opacity: 0;
-    }
-    .four{
-      animation: 1200ms p4 250ms 1 ease-in-out forwards;
-      opacity: 0;
-    }
-    .two{
-      animation: 1200ms p2 250ms 1 ease-in-out forwards;
-      opacity: 0;
-    }
-    .three{
-      animation: 1200ms p3 250ms 1 ease-in-out forwards;
-      opacity: 0;
-    }
-    @keyframes p1 {
-      0%   {left: 0; top: 0; opacity: 0;}
-      100% { left: -7%; top: -15%; opacity: 1;}
-    }
-    @keyframes p2 {
-      0%   {left: 0; bottom: 0; opacity: 0;}
-      100% {left: -5%; bottom: -5%; opacity: 1;}
-    }
-    @keyframes p3 {
-      0%   {right: 0; top: 0; opacity: 0;}
-      100% {right: -5%; top: -5%; opacity: 1;}
-    }
-    @keyframes p4 {
-      0%   {right: 0; bottom: 0; opacity: 0;}
-      100% {right: -3%; bottom: -11%; opacity: 1;}
-    }
-    /* form Styling */
-    form{
-      color: white;
-      display: flex;
-      flex-flow: column nowrap;
-      font: normal 400 1em nunito;
-      animation: 1200ms form 0s 1 ease-in forwards;
-      backdrop-filter: blur(3px);
-      border-radius: 10px;
-      padding: 10px;
-      height: 100%;
-      width: 100%;
-    }
-    @keyframes form {
-      0%   {background-color: rgba(255, 255, 255, 0.3);}
-      100% {background-color: rgba(255, 255, 255, 0.2);}
-    }
-    input{
-      background-color: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 7px;
-      outline: none;
-      color: white;
-      flex: 100%;
-    }
-    h1{
-      flex: 100%;
-      text-align: center;
-      margin: 10px auto 20px auto;
-      font: 300 1.8em roboto;
-    }
-    label{
-      flex: 100%;
-    }
-    input[type="submit"]{
-      color: white;
-      font: 1em nunito;
-      background-image: linear-gradient(to left, rgba(192, 88, 150, 0.5), rgba(43, 77, 189, 0.5));
-      padding: 12px;
-      margin: 30px 0 0 0;
-      cursor: pointer;
-    }
-    input[type="text"]{
-      margin-bottom: 20px;
-    }
-    input[type="text"]:focus, input[type="password"]:focus{
-      border-radius: 2px;
-    }
-    .social{
-      display: flex;
-      flex-flow: row nowrap;
-      width: 100%;
-      color: white;
-      font: 1em calibri;
-      justify-content: space-between;
-      margin: 5px 0 50px 0;
-    }
-    .social>div{
-      padding: 8px;
-      flex-basis: 49%;
-      text-align: center;
-      background-color: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-      font: normal 400 1em nunito;
-    }
-    .social i{
-      margin: 0 8px 0 0;
-    }
-    .social a, .social a:visited{
-      text-decoration: none;
-      color: white;
-    }
-    @media screen and (max-width:576px){
-     .login{
-       width: 80vw;
-     }
-    }
-    @media screen and (min-width:577px) and (max-width:768px){
-      .login{
-        width: 40vw;
-      }
-    }
-    @media screen and (min-width:769px) and (max-width:992px){
-      .login{
-        width: 40vw;
-      }
-    }
-    @media screen and (min-width:993px) and (max-width:1400px){
-      .login{
-        width: 25vw;
-        margin-right: auto;
-        margin-left: 60%;
-      }
-    }
-    @media screen and (min-width:1401px){
-      .login{
-        width: 23vw;
-        margin-right: auto;
-        margin-left: 60%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="login">
-    <p class="one"></p>
-    <p class="two"></p>
-    <p class="three"></p>
-    <p class="four"></p>
-    <form action="action.php" method="post" autocomplete="off" target="_blank">
-      <h1>Log In</h1>
-      <label for="username">Username: </label>
-      <input type="text" name="username" id="username">
-      <label for="password">Password: </label>
-      <input type="password" name="password" id="password" >
-      <input type="submit" value="Login">
-      <div class="social">
-        <div class="social-go"><i class="fab fa-google"></i><a href="https://www.google.com">Google</a></div>
-        <div class="social-fb"><i class="fab fa-facebook"></i><a href="https://www.facebook.com">Facebook</a></div>
-      </div>
-    </form>
-  </div>
-</body>
+<html>
+    <head>
+        <title>Hello World!</title>
+        <style>
+            ::selection{
+                color: rgb(251, 252, 252);
+                background-color: rgba(30, 143, 255, 0.515);
+            }
+            h1{
+                font-family: verdana;
+                font-weight: normal;
+                font-style: italic;
+            }
+            #number{
+                outline: none;
+            }
+            #demo{
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: normal;
+                font-size: 16px;
+                font-style: oblique;
+                border: none;
+                font-size: 16px;
+                padding: 3px;
+            }
+            html{
+                background-color: lightslategrey;
+            }
+        </style>
+    </head>
+    <body>
+        <header><h1>MacOS</h1></header>
+        <p id="demo"></p>
+        <script src="Javascript.js"></script>
+    </body>
 </html>
