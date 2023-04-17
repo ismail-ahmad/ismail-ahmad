@@ -1,1 +1,0 @@
-module.exports = uri = "mongodb+srv://ismailahmad0505:qwertyhgfdsa0987654321@cluster64279.q3f7avo.mongodb.net/?retryWrites=true&w=majority";
