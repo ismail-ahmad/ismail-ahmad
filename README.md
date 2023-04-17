@@ -1,4 +1,0 @@
-- 👋 Hi, I’m ismail ahmad
-- 👀 I’m interested in computers
-- 🌱 I’m currently learning full stack
-- 💞️ I’m looking to collaborate on developer community
